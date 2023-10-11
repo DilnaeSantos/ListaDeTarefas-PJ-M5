@@ -1,16 +1,16 @@
 
 import Header from '../../components/LayoutTarefas/Header'
-import MinhasTarefas from '../../components/LayoutTarefas/MinhasTarefas'
-import ListaTarefas from '../../components/LayoutTarefas/ListaTarefas'
-import Footer from '../../components/LayoutTarefas/Footer'
+// import MinhasTarefas from '../../components/LayoutTarefas/MinhasTarefas'
+// import ListaTarefas from '../../components/LayoutTarefas/ListaTarefas'
+// import Footer from '../../components/LayoutTarefas/Footer'
 
 const PaginaTarefas = () => {
     return (
         <>
         <Header/>
-        <MinhasTarefas/>
+        {/* <MinhasTarefas/>
         <ListaTarefas/>
-        <Footer/>
+        <Footer/> */}
         </>
         
     );
