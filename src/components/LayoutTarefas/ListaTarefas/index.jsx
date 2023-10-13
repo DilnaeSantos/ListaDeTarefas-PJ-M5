@@ -111,7 +111,7 @@ const ListaTarefas = () => {
           onClick={handleCriarTarefa}
           onFocus={handleCriarTarefa}
         >
-          {tarefaEditando !== null ? "Salvar" : "Criar"}
+          {tarefaEditando !== null ? "Criar" : "Criar"}
         </button>
         <div className="containerPesquisa">
           <input
