@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StylesListaTarefas } from "./styles";
 
 const ListaTarefas = () => {
@@ -9,6 +9,12 @@ const ListaTarefas = () => {
   const [novaDataVencimento, setNovaDataVencimento] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [tarefaEditando, setTarefaEditando] = useState(null);
+
+  // Usar useEffect para recuperar tarefas do localStorage quando a página carregar
+  useEffect(() => {
+    const tarefasSalvas = JSON.parse(localStorage.getItem("tarefas")) || [];
+    setTarefas(tarefasSalvas);
+  }, []);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -44,8 +50,13 @@ const ListaTarefas = () => {
         concluida: false,
       };
 
+      // Salvar as tarefas no estado
       setTarefas([...tarefas, novaTarefaObj]);
 
+      // Salvar as tarefas no localStorage
+      localStorage.setItem("tarefas", JSON.stringify([...tarefas, novaTarefaObj]));
+
+      // Limpar os campos após a criação
       setNovaTarefa("");
       setNovaDescricao("");
       setNovaDataVencimento("");
@@ -56,6 +67,9 @@ const ListaTarefas = () => {
     const novasTarefas = [...tarefas];
     novasTarefas.splice(index, 1);
     setTarefas(novasTarefas);
+
+    // Atualizar as tarefas no localStorage após a exclusão
+    localStorage.setItem("tarefas", JSON.stringify(novasTarefas));
   };
 
   const handleEditarTarefa = (index) => {
@@ -79,6 +93,9 @@ const ListaTarefas = () => {
       setNovaTarefa("");
       setNovaDescricao("");
       setNovaDataVencimento("");
+
+      // Atualizar as tarefas no localStorage após a edição
+      localStorage.setItem("tarefas", JSON.stringify(novasTarefas));
     }
   };
 
@@ -86,6 +103,9 @@ const ListaTarefas = () => {
     const novasTarefas = [...tarefas];
     novasTarefas[index].concluida = !novasTarefas[index].concluida;
     setTarefas(novasTarefas);
+
+    // Atualizar as tarefas no localStorage após a conclusão
+    localStorage.setItem("tarefas", JSON.stringify(novasTarefas));
   };
 
   const handleEnterKeyPress = (event) => {
@@ -120,7 +140,7 @@ const ListaTarefas = () => {
             placeholder="Pesquisar Pelo Título"
             value={searchQuery}
             onChange={handleSearchChange}
-            onKeyPress={handleSearchKeyPress} // Ative a pesquisa ao pressionar Enter
+            onKeyPress={handleSearchKeyPress} 
           />
           <button className="btnPesquisa" onClick={handleSearchSubmit}>Pesquisar</button>
         </div>
@@ -143,7 +163,7 @@ const ListaTarefas = () => {
           type="date"
           value={novaDataVencimento}
           onChange={(e) => setNovaDataVencimento(e.target.value)}
-          onKeyPress={handleEnterKeyPress} // Criar tarefa ao pressionar Enter no campo de data
+          onKeyPress={handleEnterKeyPress} 
         />
       </section>
       <section className="Tarefa">
