@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import back from '/back.jpg'
 
 export const StylesListaTarefas = styled.section`
   height: 100vh;
-  background-image: url(../../../../public/back.jpg);
+  background-image: url(${back});
   background-repeat: no-repeat;
   background-size: 100%;
 
