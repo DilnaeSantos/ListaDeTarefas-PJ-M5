@@ -98,7 +98,6 @@ export const StylesListaTarefas = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 7px;
-    color: #0bcee3;
   }
 
   .concluida {
