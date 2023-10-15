@@ -2,15 +2,15 @@
 import styled from "styled-components"
 
 export const StylesLandingPage = styled.section `
-    margin-top: 6%;
+    margin-top: 9%;
     
     .container {
         display: flex;
     }
 
     .LP-1 {
-        width: 55.5%;
-        
+        width: 55%;
+        margin-right: 0.2%;
     }
 
     .textos {
@@ -25,4 +25,5 @@ export const StylesLandingPage = styled.section `
     .paragrafo1 {
         font-size: 115%;
     }
+
 `

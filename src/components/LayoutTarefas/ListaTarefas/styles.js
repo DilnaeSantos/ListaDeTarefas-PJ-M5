@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import back from '/back.jpg'
 
 export const StylesListaTarefas = styled.section`
   height: 100vh;
-  background-image: url(../../../../public/back.jpg);
+  background-image: url(${back});
   background-repeat: no-repeat;
   background-size: 100%;
 
@@ -97,6 +98,7 @@ export const StylesListaTarefas = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 7px;
+    color: #0bcee3;
   }
 
   .concluida {
@@ -149,20 +151,5 @@ export const StylesListaTarefas = styled.section`
     scale: 1.2;
     border-radius: 35% 0%;
   }
-
- /* perssonalização dos scrolls */
-*::-webkit-scrollbar {
-	width: 12px;
-}
-
-*::-webkit-scrollbar-track {
-	background: #09b9cd;
-}
-
-*::-webkit-scrollbar-thumb {
-	background-color: #f8f8f8;
-	border-radius: 10px;
-	border: 3px solid #f0ecec;
-}
-
+  
 `
